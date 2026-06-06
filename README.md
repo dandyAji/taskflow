@@ -116,25 +116,23 @@ npm run dev
 ## 📸 Tampilan Aplikasi
 
 ### 💻 Versi Web
+Berikut adalah tampilan antarmuka TaskFlow ketika diakses melalui desktop:
 
-Berikut adalah tampilan antarmuka TaskFlow ketika diakses melalui peramban web:
-
-|                         Halaman Login                         |                          Halaman Register                           |
-| :-----------------------------------------------------------: | :-----------------------------------------------------------------: |
-| <img src="./image/web_login.png" width="400" alt="Web Login"> | <img src="./image/web_register.png" width="400" alt="Web Register"> |
+| Halaman Login | Halaman Register |
+| :---: | :---: |
+| <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/web_login.png" width="400" alt="Web Login"> | <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/web_register.png" width="400" alt="Web Register"> |
 
 <br>
 
-|                       Halaman Dashboard / Tugas                       |
-| :-------------------------------------------------------------------: |
-| <img src="./image/web_task.png" width="820" alt="Web Task Dashboard"> |
+| Halaman Dashboard / Tugas |
+| :---: |
+| <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/web_task.png" width="820" alt="Web Task Dashboard"> |
 
 ---
 
 ### 📱 Versi Mobile
+Tampilan responsif TaskFlow pada perangkat mobile:
 
-Optimasi tampilan responsif TaskFlow pada perangkat mobile:
-
-|                                Login                                |                                 Register                                  |                          Manajemen Tugas                          |
-| :-----------------------------------------------------------------: | :-----------------------------------------------------------------------: | :---------------------------------------------------------------: |
-| <img src="./image/mobile_login.png" width="220" alt="Mobile Login"> | <img src="./image/mogile_register.png" width="220" alt="Mobile Register"> | <img src="./image/mobile_task.png" width="220" alt="Mobile Task"> |
+| Login | Register | Manajemen Tugas |
+| :---: | :---: | :---: |
+| <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/mobile_login.png" width="220" alt="Mobile Login"> | <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/mogile_register.png" width="220" alt="Mobile Register"> | <img src="https://raw.githubusercontent.com/dandyAji/taskflow/main/images/mobile_task.png" width="220" alt="Mobile Task"> |

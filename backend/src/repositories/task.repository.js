@@ -63,3 +63,17 @@ export const countTask = async (userId) => {
         where: { userId },
     });
 };
+
+export const countFilteredTasks = async (userId, { status, search }) => {
+    return prisma.task.count({
+        where: {
+            userId,
+            ...(status !== "all" && { status }),
+            ...(search && {
+                title: {
+                    contains: search,
+                },
+            }),
+        },
+    });
+};

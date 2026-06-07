@@ -11,7 +11,7 @@ jest.unstable_mockModule("../repositories/task.repository.js", () => ({
     countTask: jest.fn(),
 }));
 
-const { createTask, getAllTasks, getTaskById, getTaskByUserId, updateTask, updateTaskStatus, deleteTask } = await import("../repositories/task.repository.js");
+const { createTask, getAllTasks, getTaskById, getTaskByUserId, updateTask, updateTaskStatus, deleteTask, countFilteredTasks } = await import("../repositories/task.repository.js");
 
 const { create, getAll, getById, update, updateStatus, remove, countTasksGroupByStatus } = await import("../service/task.service.js");
 

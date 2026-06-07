@@ -1,4 +1,4 @@
-import { countTask, createTask, deleteTask, getAllTasks, getTaskById, getTaskByUserId, updateTask, updateTaskStatus } from "../repositories/task.repository.js";
+import { countTask, createTask, deleteTask, getAllTasks, getTaskById, getTaskByUserId, updateTask, updateTaskStatus, countFilteredTasks } from "../repositories/task.repository.js";
 import { AppError } from "../utils/error.utils.js";
 
 export const create = async ({ title, description, userId, deadline, status }) => {
@@ -102,4 +102,8 @@ export const countTasksGroupByStatus = async (userId) => {
     }, initialCounts);
 
     return statusCounts;
+};
+
+export const countFiltered = async (userId, { status, search }) => {
+    return countFilteredTasks(userId, { status, search });
 };

@@ -1,4 +1,4 @@
-import { create, remove, getAll, getById, update, updateStatus, countTasks, countTasksGroupByStatus } from "../service/task.service.js";
+import { create, remove, getAll, getById, update, updateStatus, countTasks, countTasksGroupByStatus, countFiltered } from "../service/task.service.js";
 import { formatError } from "../utils/error.formatter.util.js";
 import { taskValidation } from "../validation/task.validation.js";
 
@@ -27,28 +27,32 @@ export const GetTasks = async (req, res) => {
         const parsedStatus = status ?? "all";
         const parsedSearch = search ?? "";
 
-        const tasks = await getAll(req.user.id, {
-            page: parsedPage,
-            limit: parsedLimit,
-            status: parsedStatus,
-            search: parsedSearch,
-        });
-
-        const totalTask = await countTasksGroupByStatus(req.user.id);
+        const [tasks, totalTask, filteredCount] = await Promise.all([
+            getAll(req.user.id, {
+                page: parsedPage,
+                limit: parsedLimit,
+                status: parsedStatus,
+                search: parsedSearch,
+            }),
+            countTasksGroupByStatus(req.user.id),
+            countFiltered(req.user.id, {
+                status: parsedStatus,
+                search: parsedSearch,
+            }),
+        ]);
 
         res.status(200).json({
             message: "Berhasil mendapatkan tugas",
             data: tasks,
             meta: {
-                limit: parsedLimit ?? 5,
-                page: parsedPage ?? 1,
-                totalPage: Math.ceil(totalTask.all / (parsedLimit ?? 5)),
+                limit: parsedLimit,
+                page: parsedPage,
+                totalPage: Math.ceil(filteredCount / parsedLimit), // ← pakai filteredCount
                 totalTask: totalTask,
             },
         });
     } catch (error) {
         const { statusCode, body } = formatError(error);
-
         return res.status(statusCode).json(body);
     }
 };
